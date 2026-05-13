@@ -1,4 +1,13 @@
 trigger:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dotnetmssqlrm559597'
+    repository: 'dotnetsql'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
 - main
 
 pool:
